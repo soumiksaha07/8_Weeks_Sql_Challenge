@@ -27,7 +27,7 @@ Three key datasets for this case study
 - members: The members table captures the join_date when a customer_id joined the beta version of the Danny’s Diner loyalty program.
 
 ## Entity Relationship Diagram
-![alt text](https://github.com//8-Week-SQL-Challenge/blob/84286efbdf15af47af983ec47e4c07ba174040cb/Case%20Study%20%23%201%20-%20Danny's%20Diner/ERD.jpg)
+![alt text](https://github.com/soumiksaha07/8_Weeks_Sql_Challenge/blob/main/%231%20Case%20Study%20-%20Danny's%20Diner/Danny's%20Diner%20ER%20Diagram.png)
 
 ## Case Study Questions
 1. What is the total amount each customer spent at the restaurant?
@@ -41,4 +41,4 @@ Three key datasets for this case study
 11. If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?
 12. In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?
   
-Click [here](https://github.com/manaswikamila05/8-Week-SQL-Challenge/blob/main/Case%20Study%20%23%201%20-%20Danny's%20Diner/Danny's%20Diner%20Solution.md) to view the solution solution of the case study!
+**[Click here](https://github.com/soumiksaha07/8_Weeks_Sql_Challenge/blob/main/%231%20Case%20Study%20-%20Danny's%20Diner/Case1_SQL_Script.sql) to view the presentation of this of the case study!**
