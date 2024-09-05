@@ -30,10 +30,14 @@ limit 1;
 
 -- Which item was the most popular for each customer?
 
-select s.customer_id, mn.product_name, count(mn.product_name) 'count'
-from sales s inner join menu mn on s.product_id = mn.product_id
-group by 1,2
-order by 1 asc, 3 desc;
+with cte as (select s.customer_id, product_name 'popular_item', count(mn.product_name) 'total_purchase',
+dense_rank() over (partition by customer_id order by count(mn.product_name) desc) 'ranks'
+from sales s left join menu mn on s.product_id = mn.product_id
+group by 1,2)
+
+select customer_id, popular_item, total_purchase
+from cte
+where ranks = 1;
 
 -- Which item was purchased first by the customer after they became a member?
 
