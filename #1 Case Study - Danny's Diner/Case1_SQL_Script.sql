@@ -1,6 +1,6 @@
  -- What is the total amount each customer spent at the restaurant?
 
-select s.customer_id, sum(mn.price) 'total amount'
+select s.customer_id, concat('$ ',sum(mn.price)) 'total amount'
 from sales s left join menu mn using (product_id)
 group by 1;
 
@@ -46,6 +46,7 @@ with cte as (
 	row_number() over (partition by customer_id order by order_date) 'ranks'
 	from sales s left join members m on s.customer_id = m.customer_id
 	where order_date > join_date)
+	
 select customer_id, product_name
 from cte inner join menu mn using(product_id)
 where ranks = 1
@@ -58,6 +59,7 @@ with cte as (
 	row_number() over (partition by customer_id order by order_date desc) 'ranks'
 	from sales s left join members m on s.customer_id = m.customer_id
 	where order_date < join_date)
+	
 select customer_id, product_name
 from cte inner join menu mn using(product_id)
 where ranks = 1
