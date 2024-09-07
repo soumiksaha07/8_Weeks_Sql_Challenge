@@ -73,7 +73,7 @@ with cte as (
 	from sales s left join members m using(customer_id)
 	where order_date < join_date)
 
-select customer_id, count(c.product_id) 'total items', sum(mn.price) 'total spent'
+select customer_id, count(c.product_id) 'total items', concat('$ ',sum(mn.price)) 'total spent'
 from cte c inner join menu mn using(product_id)
 group by 1;
 
