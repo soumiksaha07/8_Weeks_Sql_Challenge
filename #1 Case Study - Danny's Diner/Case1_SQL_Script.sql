@@ -13,16 +13,16 @@ group by 1;
 -- What was the first item from the menu purchased by each customer?
 
 with cte as (select s.customer_id, product_name, order_date,
-row_number() over (partition by customer_id order by s.order_date asc) 'first_item'
+row_number() over (partition by customer_id order by s.order_date asc) 'ranks'
 from sales s left join menu mn on s.product_id = mn.product_id)
 
-select customer_id, product_name
+select customer_id, product_name 'first_item'
 from cte
-where first_item = 1;
+where ranks = 1;
 
 -- What is the most purchased item on the menu and how many times was it purchased by all customers?
 
-select mn.product_name, count(mn.product_name) 'count'
+select mn.product_name, count(mn.product_name) 'total_purchased'
 from sales s inner join menu mn on s.product_id = mn.product_id
 group by 1
 order by 2 desc
@@ -47,7 +47,7 @@ with cte as (
 	from sales s left join members m on s.customer_id = m.customer_id
 	where order_date > join_date)
 	
-select customer_id, product_name
+select customer_id, join_date, order_date, product_name
 from cte inner join menu mn using(product_id)
 where ranks = 1
 order by 1 asc;
@@ -58,8 +58,8 @@ with cte as (
 	select distinct s.customer_id, product_id,
 	row_number() over (partition by customer_id order by order_date desc) 'ranks'
 	from sales s left join members m on s.customer_id = m.customer_id
-	where order_date < join_date)
-	
+	where order_date <= join_date)
+
 select customer_id, product_name
 from cte inner join menu mn using(product_id)
 where ranks = 1
