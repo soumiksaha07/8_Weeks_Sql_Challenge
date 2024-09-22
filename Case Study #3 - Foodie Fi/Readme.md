@@ -2,7 +2,7 @@
 <p align="center">
 <img src="https://8weeksqlchallenge.com/images/case-study-designs/3.png" alt="Image" width="450" height="450">
 
-View the case study [here](https://8weeksqlchallenge.com/case-study-3/)
+**View the case study [here](https://8weeksqlchallenge.com/case-study-3/)**
   
 ## Table Of Contents
   - [Introduction](#introduction)
@@ -35,7 +35,8 @@ There are 5 customer plans.
 - When customers *churn* - they will keep their access until the end of their current billing period but the start_date will be technically the day they decided to cancel their service.
 
 ## Entity Relationship Diagram
-![alt text](https://github.com/manaswikamila05/8-Week-SQL-Challenge/blob/main/Case%20Study%20%23%203%20-%20Foodie-Fi/ERD.jpg)
+
+![image](https://github.com/user-attachments/assets/65ba147c-eff7-40bb-acd0-e52a0e45fd51)
 
 ## Case Study Solutions
 - [A. Customer Journey](https://github.com/soumiksaha07/8_Weeks_Sql_Challenge/blob/main/Case%20Study%20%233%20-%20Foodie%20Fi/A.%20Customer%20Journey.sql)
