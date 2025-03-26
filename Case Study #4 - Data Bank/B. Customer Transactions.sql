@@ -13,7 +13,7 @@ where txn_type = 'deposit'
 group by 1)
 
 select round(avg(total_deposit), 0) 'average_total_deposit', round(avg(total_deposit_amount), 0) 'average_total_deposit_amount'
-from cte;
+from cte
 
 -- For each month - how many Data Bank customers make more than 1 deposit and either 1 purchase or 1 withdrawal in a single month?
 
